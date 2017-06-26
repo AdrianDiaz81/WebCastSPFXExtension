@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "name": "field-range-client-side-solution",
+    "id": "c0bb0b00-5d7a-4272-b168-64e9e7f0fa96",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/field-range.sppkg"
+  }
+}

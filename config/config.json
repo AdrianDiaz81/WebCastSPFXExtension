@@ -1,0 +1,37 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/extensions/fieldRange/FieldRangeFieldCustomizer.js",
+      "manifest": "./src/extensions/fieldRange/FieldRangeFieldCustomizer.manifest.json",
+      "outputPath": "./dist/field-range.bundle.js"
+    },
+    {
+      "entry": "./lib/extensions/sliderField/SliderFieldFieldCustomizer.js",
+      "manifest": "./src/extensions/sliderField/SliderFieldFieldCustomizer.manifest.json",
+      "outputPath": "./dist/slider-field.bundle.js"
+    },
+    {
+      "entry": "./lib/extensions/helloWorld/HelloWorldFieldCustomizer.js",
+      "manifest": "./src/extensions/helloWorld/HelloWorldFieldCustomizer.manifest.json",
+      "outputPath": "./dist/hello-world.bundle.js"
+    },
+    {
+      "entry": "./lib/extensions/appCustomizer/AppCustomizerApplicationCustomizer.js",
+      "manifest": "./src/extensions/appCustomizer/AppCustomizerApplicationCustomizer.manifest.json",
+      "outputPath": "./dist/app-customizer.bundle.js"
+    },
+    {
+      "entry": "./lib/extensions/functionCommandSet/FunctionCommandSetCommandSet.js",
+      "manifest": "./src/extensions/functionCommandSet/FunctionCommandSetCommandSet.manifest.json",
+      "outputPath": "./dist/function-command-set.bundle.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "fieldRangeStrings": "extensions/fieldRange/loc/{locale}.js",
+    "sliderFieldStrings": "extensions/sliderField/loc/{locale}.js",
+    "helloWorldStrings": "extensions/helloWorld/loc/{locale}.js",
+    "appCustomizerStrings": "extensions/appCustomizer/loc/{locale}.js",
+    "functionCommandSetStrings": "extensions/functionCommandSet/loc/{locale}.js"
+  }
+}

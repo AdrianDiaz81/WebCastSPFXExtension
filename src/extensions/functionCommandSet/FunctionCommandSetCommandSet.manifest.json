@@ -1,0 +1,22 @@
+{
+  "$schema": "../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "048673f1-78c3-4a8d-ac87-d45b7ebb4676",
+  "alias": "FunctionCommandSetCommandSet",
+  "componentType": "Extension",
+  "extensionType": "ListViewCommandSet",
+  "version": "*", // The "*" signifies that the version should be taken from the package.json
+  "manifestVersion": 2,
+  "safeWithCustomScriptDisabled": true,
+
+  "commands": {
+    "COMMAND_1": {
+      "title": "Command One",
+      "iconImageUrl": "icons/request.png"
+    },
+    "COMMAND_2": {
+      "title": "Command Two",
+      "iconImageUrl": "icons/cancel.png"
+    }
+  }
+}
