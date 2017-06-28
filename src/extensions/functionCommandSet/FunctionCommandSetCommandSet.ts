@@ -5,6 +5,7 @@ import {
   IListViewCommandSetRefreshEventParameters,
   IListViewCommandSetExecuteEventParameters
 } from '@microsoft/sp-listview-extensibility';
+import { HttpClient, SPHttpClient, HttpClientConfiguration, HttpClientResponse, ODataVersion, IHttpClientConfiguration, IHttpClientOptions, ISPHttpClientOptions } from '@microsoft/sp-http';
 
 import * as strings from 'functionCommandSetStrings';
 
@@ -43,6 +44,7 @@ export default class FunctionCommandSetCommandSet
 
   @override
   public onExecute(event: IListViewCommandSetExecuteEventParameters): void {
+
     switch (event.commandId) {
       case 'COMMAND_1':
         alert(`Clicked ${strings.Command1}`);
@@ -50,8 +52,37 @@ export default class FunctionCommandSetCommandSet
       case 'COMMAND_2':
         alert(`Clicked ${strings.Command2}`);
         break;
+      case 'COMMAND_3':
+        this.Execute(event);
+        break;
       default:
         throw new Error('Unknown command');
     }
+  }
+
+   Execute(id:any):void{
+     alert("LLamo a la Azure Function");
+        var siteUrl: string = this.context.pageContext.web.absoluteUrl;;
+        var pageText:string="1";
+        var pageName:string="Document"
+     const functionUrl: string = "https://cob-pnp-functions.azurewebsites.net/api/CreateModernPage?code=WniDsXQ43Nf1HYB0JEIRuRrbLPaTTQnuithMnqtXoLQ54Hz6FY/j3g==";
+    const requestHeaders: Headers = new Headers();
+        requestHeaders.append("Content-type", "application/json");
+        requestHeaders.append("Cache-Control", "no-cache");
+    const postOptions: IHttpClientOptions = {
+        headers: requestHeaders,
+        body: `{ SiteUrl: '${siteUrl}', List: '${pageName}', Id: '${pageText}' }`
+      };
+          this.context.httpClient.post(functionUrl, HttpClient.configurations.v1, postOptions).then((response: HttpClientResponse) => {
+         response.json().then((responseJSON: JSON) => {
+           var responseText = JSON.stringify(responseJSON);
+            alert(responseText)
+          })
+          .catch ((response: any) => {
+            let errMsg: string = `WARNING - error when calling URL ${functionUrl}. Error = ${response.message}`;            
+            console.log(errMsg);
+            alert(errMsg);
+          });
+      });
   }
 }
